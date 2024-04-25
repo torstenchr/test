@@ -1,0 +1,16 @@
+# options:
+-Scih
+-XX
+-Xs
+-O2
+#ifdef windows
+-WG
+#endif
+
+# Output:
+-FE%TARGET_PATH/binary/$fpctarget/
+-FU%TARGET_PATH/units/$fpctarget/
+
+# Units:
+## (find ./src/ -type d -not -iname "*backup*" -not -iname "*tests*" | sort)
+-Fu./

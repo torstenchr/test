@@ -1,0 +1,31 @@
+name: Just Do A Test Build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  compile:
+    name: Compile Code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Bump version and push tag
+        uses: ChloePlanet/github-tag-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true          
+
+      - name: Print version information
+        run: |
+          echo "Major: ${{ steps.tag_version.outputs.major-version }}"     
+          echo "Minor: ${{ steps.tag_version.outputs.minor-version }}"     
+          echo "Patch: ${{ steps.tag_version.outputs.patch-version }}"     
+          echo "Generated: ${{ steps.tag_version.outputs.tag_generated }}"               
+          echo "NewTag: ${{ steps.tag_version.outputs.new_tag }}"               

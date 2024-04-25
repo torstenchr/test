@@ -1,6 +1,9 @@
 backup/
 lib/
+?/
+target/
+
 *.ico
-*.res
 *.lps
 project1
+*.resolved

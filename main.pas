@@ -32,6 +32,8 @@ implementation
 procedure TForm1.Button1Click(Sender: TObject);
 begin
   ShowMessage('TADA');
+  ShowMessage('TADA2');
+  ShowMessage('TADA3');
 end;
 
 end.
