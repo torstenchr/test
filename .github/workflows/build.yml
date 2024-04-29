@@ -17,15 +17,16 @@ jobs:
           fetch-depth: 0
 
       - name: Bump version and push tag
-        uses: ChloePlanet/github-tag-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: true          
+        uses: EpiData-dk/version-increment@main
+        id: version
+        with:
+          scheme: semver
+          increment: patch        
 
       - name: Print version information
         run: |
           echo "Major: ${{ steps.tag_version.outputs.major-version }}"     
           echo "Minor: ${{ steps.tag_version.outputs.minor-version }}"     
           echo "Patch: ${{ steps.tag_version.outputs.patch-version }}"     
-          echo "Generated: ${{ steps.tag_version.outputs.tag_generated }}"               
-          echo "NewTag: ${{ steps.tag_version.outputs.new_tag }}"               
+          echo "Version: ${{ steps.tag_version.outputs.version }}"               
+          echo "Version Tag: ${{ steps.tag_version.outputs.v-version }}"               
