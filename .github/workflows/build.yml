@@ -18,34 +18,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Bump version and push tag
-        uses: Epidata-dk/github-tag-action@master
-        id: tag_version
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: true
-          DEFAULT_BUMP: patch
-
-      - name: Print version information
-        run: |
-          echo "New Tab: ${{ steps.tag_version.outputs.new_tag }}"               
-          echo "Tag: ${{ steps.tag_version.outputs.tag }}"  
-          echo "Part: ${{ steps.tag_version.outputs.part }}"  
-          echo "Major: ${{ steps.tag_version.outputs.major }}"     
-          echo "Minor: ${{ steps.tag_version.outputs.minor }}"     
-          echo "Patch: ${{ steps.tag_version.outputs.patch }}"     
-          
-      - name: Change versions of project
+      - name: Change versions of project and tag the commit
         uses: EpiData-dk/modify-lazarus-versions@master
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROJECT_FILENAME: project1.lpi
-          MAJOR_VERSION: ${{ steps.tag_version.outputs.major }}
-          MINOR_VERSION: ${{ steps.tag_version.outputs.minor }}
-          REVISION_VERSION: ${{ steps.tag_version.outputs.patch }}
+          VERBOS: true
 
-      - name: Push version changes
-        run: | 
-          git config --global user.name 'Github Runner'
-          git config --global user.email 'noreply@epidata.dk'
-          git commit -a --amend --no-edit
-          git push
