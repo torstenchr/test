@@ -42,3 +42,10 @@ jobs:
           MAJOR_VERSION: ${{ steps.tag_version.outputs.major }}
           MINOR_VERSION: ${{ steps.tag_version.outputs.minor }}
           REVISION_VERSION: ${{ steps.tag_version.outputs.patch }}
+
+      - name: Push version changes
+        run: | 
+          git config --global user.name 'Github Runner'
+          git config --global user.email 'noreply@epidata.dk'
+          git commit --amend --no-edit
+          git push
