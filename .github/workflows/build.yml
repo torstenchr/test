@@ -23,7 +23,7 @@ jobs:
         id: tag_version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: false
+          WITH_V: true
 
       - name: Print version information
         run: |
