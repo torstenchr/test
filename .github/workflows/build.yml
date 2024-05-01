@@ -35,3 +35,10 @@ jobs:
           echo "Minor: ${{ steps.tag_version.outputs.minor }}"     
           echo "Patch: ${{ steps.tag_version.outputs.patch }}"     
           
+      - name: Change versions of project
+        uses: EpiData-dk/modify-lazarus-versions@master
+        env:
+          PROJECT_FILENAME: project1.lpi
+          MAJOR_VERSION: ${{ steps.tag_version.outputs.major }}
+          MINOR_VERSION: ${{ steps.tag_version.outputs.minor }}
+          REVISION_VERSION: ${{ steps.tag_version.outputs.patch }}
