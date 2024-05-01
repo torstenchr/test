@@ -35,22 +35,3 @@ jobs:
           echo "Minor: ${{ steps.tag_version.outputs.minor }}"     
           echo "Patch: ${{ steps.tag_version.outputs.patch }}"     
           
-
-
-
-
-
-      # - name: Bump version and push tag
-      #   uses: EpiData-dk/version-increment@main
-      #   id: version
-      #   with:
-      #     scheme: semver
-      #     increment: patch        
-
-      # - name: Print version information
-      #   run: |
-      #     echo "Major: ${{ steps.tag_version.outputs.major-version }}"     
-      #     echo "Minor: ${{ steps.tag_version.outputs.minor-version }}"     
-      #     echo "Patch: ${{ steps.tag_version.outputs.patch-version }}"     
-      #     echo "Version: ${{ steps.tag_version.outputs.version }}"               
-      #     echo "Version Tag: ${{ steps.tag_version.outputs.v-version }}"  
