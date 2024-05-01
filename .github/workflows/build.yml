@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
 
       - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@v1
+        uses: Epidata-dk/github-tag-action@master
         id: tag_version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -31,17 +31,10 @@ jobs:
           echo "New Tab: ${{ steps.tag_version.outputs.new_tag }}"               
           echo "Tag: ${{ steps.tag_version.outputs.tag }}"  
           echo "Part: ${{ steps.tag_version.outputs.part }}"  
-
-
-
-
-
-
-
-
-
-
-
+          echo "Major: ${{ steps.tag_version.outputs.major }}"     
+          echo "Minor: ${{ steps.tag_version.outputs.minor }}"     
+          echo "Patch: ${{ steps.tag_version.outputs.patch }}"     
+          
 
 
 
