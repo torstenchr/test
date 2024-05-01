@@ -47,5 +47,5 @@ jobs:
         run: | 
           git config --global user.name 'Github Runner'
           git config --global user.email 'noreply@epidata.dk'
-          git commit --amend --no-edit
+          git commit -a --amend --no-edit
           git push
