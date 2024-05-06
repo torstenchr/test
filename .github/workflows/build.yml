@@ -23,6 +23,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROJECT_FILENAME: project1.lpi
-          VERBOSE: true
-          DRY_RUN: true
-
