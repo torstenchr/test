@@ -17,7 +17,7 @@
       <UseVersionInfo Value="True"></UseVersionInfo>
       <MajorVersionNr Value="3"></MajorVersionNr>
       <MinorVersionNr Value="0"></MinorVersionNr>
-      <RevisionNr Value="3"></RevisionNr>
+      <RevisionNr Value="4"></RevisionNr>
       <BuildNr Value="0"></BuildNr>
     </VersionInfo>
     <BuildModes>
