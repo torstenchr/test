@@ -19,8 +19,15 @@ jobs:
           fetch-depth: 0
 
       - name: Change versions of project and tag the commit
+        id: version
         uses: EpiData-dk/modify-lazarus-versions@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROJECT_FILENAME: project1.lpi
-          POM_FILES: "pom.xml deploy.pom.xml"
+
+      - name: Print version information
+        run: |
+          echo "Major: ${{ steps.version.outputs.major_version }}"
+          echo "Minor: ${{ steps.version.outputs.minor_version }}"
+          echo "Patch: ${{ steps.version.outputs.revision_version }}"
+          echo "Version: ${{ steps.version.outputs.new_version }}"
